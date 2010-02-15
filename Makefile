@@ -1,5 +1,5 @@
 
-CLASSPATH=lib/specs-1.5.0.jar:lib/junit-4.5.jar
+CLASSPATH=lib/specs_2.8.0.Beta1-1.6.2.jar:lib/junit-4.5.jar:lib/embedded-interpreter-0.1-2.8.0.Beta1-SNAPSHOT.jar
 
 all: clean compile test jar
 
@@ -23,4 +23,4 @@ lib_dir:
 	mkdir -p lib
 
 remove_jar:
-	rm -f lib/sake.jar    
+	rm -f lib/sake.jar
