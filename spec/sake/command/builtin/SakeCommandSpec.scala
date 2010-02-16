@@ -1,6 +1,7 @@
 package sake.command.builtin
 
 import org.specs._ 
+import sake.command._
 
 object SakeCommandSpec extends Specification {
     def makeTestSakeCommand(expectedFile: String, expectedTargets: String) = {

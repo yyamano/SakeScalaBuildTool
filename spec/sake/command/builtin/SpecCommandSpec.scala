@@ -1,6 +1,7 @@
 package sake.command.builtin
 
 import org.specs._ 
+import sake.command._
 import sake.util._
 import sake.environment.Environment._
 
