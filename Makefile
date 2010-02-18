@@ -13,8 +13,9 @@ test:
 	scala -classpath build:${CLASSPATH} bin/specrunner.scala
 
 jar: lib_dir remove_jar
-	cd build; \
-	jar cf ../lib/sake.jar -C . `find . -type f`
+	(cd build; \
+	jar cf ../lib/sake.jar -C . `find . -type f`)
+	jar cf lib/sake-src.jar src spec
     
 build_dir:
 	mkdir -p build
@@ -24,3 +25,4 @@ lib_dir:
 
 remove_jar:
 	rm -f lib/sake.jar
+	rm -f lib/sake-src.jar
