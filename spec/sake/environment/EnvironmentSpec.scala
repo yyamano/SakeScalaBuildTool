@@ -83,4 +83,22 @@ object EnvironmentSpec extends Specification {
             Environment.getSystemEnvironmentVariables.get("CLASSPATH") mustEqual expected
         }
     }
+
+    "The OS" should {
+        "be Windows" in {
+            val save = System.getProperty("os.name")
+            Environment.setSystemProperty("os.name", "Windows")
+            new Environment().isWindows must beTrue
+            Environment.setSystemProperty("os.name", save)
+	}
+    }
+
+    "The OS" should {
+        "not be Windows" in {
+            val save = System.getProperty("os.name")
+            Environment.setSystemProperty("os.name", "NetBSD")
+            new Environment().isWindows must beFalse
+            Environment.setSystemProperty("os.name", save)
+	}
+    }
 }

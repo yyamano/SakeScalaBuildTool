@@ -1,12 +1,15 @@
 package sake.command.builtin
 
+import sake.environment._
 import sake.command.Command
 import sake.util._
 
 /**
  * Command for recursive invocations of sake (as a new process), usually in a different directory.
  */
-class SakeCommand() extends JVMCommand("sake", Some(Map[Symbol,Any]())) {
+class SakeCommand() 
+    extends JVMCommand(if (Environment.environment.isWindows()) "sake.bat"
+		       else "sake" , Some(Map[Symbol,Any]())) {
     
     override def optionsPostFilter(options: Map[Symbol,Any]) = {
         val sakefile = options.getOrElse('f, options.getOrElse('file, "")) match {

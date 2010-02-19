@@ -1,6 +1,7 @@
 package sake.command.builtin
 
 import sake.command._
+import sake.environment._
 import sake.util._
 import sake.util.Path._
 
@@ -60,8 +61,10 @@ trait Commands {
 
     val echo = new EchoCommand()
 
-    val scala  = new JVMCommand("scala")
-    val scalac = new JVMCommand("scalac", 'files -> ".")
+    val scala  = new JVMCommand(if (Environment.environment.isWindows()) "scala.bat"
+				else "scala")
+    val scalac = new JVMCommand(if (Environment.environment.isWindows()) "scalac.bat" 
+				else "scalac", 'files -> ".")
 
     val specs  = new SpecCommand()
 

@@ -56,6 +56,10 @@ class Environment {
     def classpath_=(newPath: Path) = {
         Environment.setSystemProperty("java.class.path", newPath.joined)
     }
+
+    def isWindows() = {
+        Environment.getSystemProperty("os.name").startsWith("Windows")
+    }
 }
 
 object Environment {
