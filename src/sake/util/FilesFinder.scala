@@ -18,7 +18,7 @@ class FilesFinder() {
     
     protected def findFiles(spec: String):List[String] = {
         validateSpec(spec)
-        findFiles("", spec.split(Environment.environment.fileSeparator).toList)
+        findFiles("", spec.split(Environment.environment.fileSeparator.replace("\\", "\\\\")).toList)
     }
 
     // The lists are constructed to provide a reasonably natural order.
