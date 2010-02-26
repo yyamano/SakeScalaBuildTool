@@ -130,7 +130,7 @@ object CommandRunnerSpec extends Specification {
         val runner = new CommandRunner("pwd", Nil, environment)
         runner.environment mustEqual environment
         runner.run()
-        outputFile.writer.toString must be matching ("""sake/lib$""")
+        outputFile.writer.toString must be matching ("""lib$""")
     }    
 
     protected def runFailedTestCommand = {
