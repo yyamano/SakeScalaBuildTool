@@ -1,5 +1,5 @@
 
-CLASSPATH=lib/specs-1.5.0.jar:lib/junit-4.5.jar
+CLASSPATH=lib/specs-1.5.0.jar:lib/junit-4.5.jar:lib/embedded-interpreter-0.1-SNAPSHOT.jar
 
 all: clean compile test jar
 
