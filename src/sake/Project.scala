@@ -42,8 +42,11 @@ class ProjectDriver extends Commands {
         determineTargets(targs) foreach { t => doBuild(t) }
         
     // removeDuplicates removes from left, but we need it to remove from the right.
+    // The above behaviour is changed in 2.8.
+    // See http://old.nabble.com/List%27s-removeDuplicates-td27724264.html
     protected def determineTargets(targs: List[Symbol]):List[Target] = 
-        determineBuildOrder(targs).reverse.removeDuplicates.reverse
+        determineBuildOrder(targs).removeDuplicates
+        //determineBuildOrder(targs).reverse.removeDuplicates.reverse
 
     protected def determineBuildOrder(targs: List[Symbol]): List[Target] = {
         targs.reverse.foldLeft(List[Target]()) { (all, t) => 
