@@ -15,14 +15,9 @@ object FileSpec extends Specification {
 
     doAfterSpec {
         val d = new JavaFileWrapper("toss")
-
-// FIXME: Specs 1.6.2 doesn't allow to use expectations in doAfterSpec.
-// See http://code.google.com/p/specs/issues/detail?id=122
-// the change should be back out after the bug is fixed.
-//        d.deleteRecursively mustEqual true
-//        d.exists mustEqual false
-//        new JavaFileWrapper("toss").exists mustEqual false
-        d.deleteRecursively
+        d.deleteRecursively mustEqual true
+        d.exists mustEqual false
+        new JavaFileWrapper("toss").exists mustEqual false
     }
 
     import sake.environment._
